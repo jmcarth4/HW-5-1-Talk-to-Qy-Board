@@ -25,6 +25,7 @@ Public Class Form1
 
     'Loads serial settings when load the form
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PictureBox1.BackColor = Color.FromArgb(0, 0, 0)
         'Clears old Com Ports
         portState = False                              'Disables serial port
 
@@ -157,7 +158,30 @@ Public Class Form1
             RXLabel.Text = inPut1 & inPut2 & inPut2 & inPut3 & inPut4 & inPut5 & inPut6 & inPut7 & inPut8
 
 
+            'Only one if else works....????????
+            If inPut1 = 254 Then
+                PictureBox1.BackColor = Color.FromArgb(255, 0, 255)
+            Else
+                PictureBox1.BackColor = Color.FromArgb(0, 0, 0)
+            End If
+
+            ' NOT WORK..... Why not?  need new variable
+            'Select Case inPut1
+
+            '    Case = 0
+            '        inPut1 = 254
+            '        PictureBox1.BackColor = Color.FromArgb(255, 255, 0)
+            '    Case = 1
+            '        inPut1 = 253
+            '        PictureBox1.BackColor = Color.FromArgb(0, 255, 255)
+            '    Case Else
+            '        PictureBox1.BackColor = Color.FromArgb(0, 0, 0)
+            'End Select
+
         End If
+
+
+
 
     End Sub
 
@@ -172,7 +196,7 @@ Public Class Form1
         Dim dataOut As String
 
         dataOut = "Q"
-        'dataOut1 = "R"
+
 
         If portState = True Then
             If portState = True Then
@@ -311,7 +335,7 @@ Public Class Form1
 
         Timer1.Enabled = True
     End Sub
-
+    'NOT WORK
     Private Sub AnOut1Button_Click(sender As Object, e As EventArgs) Handles AnOut1Button.Click
         Timer1.Enabled = False                                  'Stop Timer
 
@@ -336,6 +360,8 @@ Public Class Form1
         Timer1.Enabled = True
     End Sub
 
+
+    'NOT WORK
     Private Sub DIn1Button_Click(sender As Object, e As EventArgs) Handles DIn1Button.Click
         Timer1.Enabled = False                                  'Stop Timer
 
@@ -361,7 +387,27 @@ Public Class Form1
     End Sub
 
     Private Sub DOut1Button_Click(sender As Object, e As EventArgs) Handles DOut1Button.Click
+        Timer1.Enabled = False                                  'Stop Timer
 
+
+        ' Dim dataOut1 As String
+        Dim dataOut As String
+
+        dataOut = " "
+
+
+        If portState = True Then
+            If portState = True Then
+                SerialPort1.Write(dataOut, 0, 1)
+                TXDataListBox.Items.Add(dataOut)
+                TXLabel.Text = dataOut
+            Else
+                MsgBox("Please configure and open serial port to procede")
+
+            End If
+        End If
+
+        Timer1.Enabled = True
     End Sub
     Private Sub Clear1Button_Click(sender As Object, e As EventArgs) Handles Clear1Button.Click
         TXDataListBox.Items.Clear()

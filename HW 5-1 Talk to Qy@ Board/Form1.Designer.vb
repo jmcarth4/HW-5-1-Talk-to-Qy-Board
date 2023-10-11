@@ -51,6 +51,8 @@ Partial Class Form1
         Me.AnOut1Button = New System.Windows.Forms.Button()
         Me.DIn1Button = New System.Windows.Forms.Button()
         Me.DOut1Button = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Clear3Button
@@ -283,7 +285,7 @@ Partial Class Form1
         Me.DIn1Button.Name = "DIn1Button"
         Me.DIn1Button.Size = New System.Drawing.Size(139, 49)
         Me.DIn1Button.TabIndex = 121
-        Me.DIn1Button.Text = "Digital Input 1"
+        Me.DIn1Button.Text = "Digital Inputs"
         Me.DIn1Button.UseVisualStyleBackColor = True
         '
         'DOut1Button
@@ -295,11 +297,21 @@ Partial Class Form1
         Me.DOut1Button.Text = "Digital Output 1"
         Me.DOut1Button.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Black
+        Me.PictureBox1.Location = New System.Drawing.Point(352, 446)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 123
+        Me.PictureBox1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1090, 666)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DOut1Button)
         Me.Controls.Add(Me.DIn1Button)
         Me.Controls.Add(Me.AnOut1Button)
@@ -328,6 +340,7 @@ Partial Class Form1
         Me.Controls.Add(Me.BaudRateButton)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -361,4 +374,5 @@ Partial Class Form1
     Friend WithEvents AnOut1Button As Button
     Friend WithEvents DIn1Button As Button
     Friend WithEvents DOut1Button As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
