@@ -9,6 +9,7 @@ Public Class Form1
     Dim portState As Boolean
     Dim receiveByte(18) As Byte        'Receive Data Bytes
     'Public dataOut As String
+    Public TXdata(3) As Byte
     Dim Val, receiveCount, TransmitCount As Double
     Dim newData, readSize As Integer
     Dim dataIn1, dataIn2, dataIn3, dataIn4, dataIn5, dataIn6, dataIn7, dataIn8 As Integer
@@ -545,8 +546,8 @@ Public Class Form1
 
         'If portState = True Then
         If portState = True Then
-                SerialPort1.Write(dataOut, 0, 2)
-                TXDataListBox.Items.Add(dataOut)
+            SerialPort1.Write(dataOut, 0, 2)
+            TXDataListBox.Items.Add(dataOut)
                 TXLabel.Text = dataOut
             Else
                 MsgBox("Please configure and open serial port to procede")
@@ -637,20 +638,23 @@ Public Class Form1
 
         'dataOut = (&H20 & &H10)
 
-        Dim dataOut As String
+        ' Dim dataOut As String
 
-        dataOut = Chr(32) & Chr(127)
-        Dim message() As Byte
-
+        ' dataOut = Chr(32) & Chr(127)
+        'dataOut = 2 & 40     ' works lights up LED 7
+        ' Dim message() As Byte
+        TXdata(0) = 32
+        TXdata(1) = 128
+        TXdata(2) = 0
 
         'If portState = True Then
         If portState = True Then
             'message = Int(dataOut)
-            SerialPort1.Write(dataOut, 0, 2)
+            SerialPort1.Write(TXdata, 0, 3)
             'SerialPort1.Write(message, 0, message.Length)
             'TXDataListBox.Items.Add(message)
-            TXDataListBox.Items.Add(dataOut)
-            TXLabel.Text = dataOut
+            TXDataListBox.Items.Add(TXdata)
+            TXLabel.Text = TXdata(0) & TXdata(1) & TXdata(2)
         Else
             MsgBox("Please configure and open serial port to procede")
 
