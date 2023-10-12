@@ -385,56 +385,56 @@ Public Class Form1
         Timer1.Enabled = True
     End Sub
 
-    'Not control anything
-    Private Sub AnOut3Button_Click(sender As Object, e As EventArgs) Handles AnOut3Button.Click
-        Timer1.Enabled = False                                  'Stop Timer
+    ''Not control anything
+    'Private Sub AnOut3Button_Click(sender As Object, e As EventArgs)
+    '    Timer1.Enabled = False                                  'Stop Timer
 
 
-        ' Dim dataOut1 As String
-        Dim dataOut As String
+    '    ' Dim dataOut1 As String
+    '    Dim dataOut As String
 
-        dataOut = "D"
-
-
-        If portState = True Then
-            If portState = True Then
-                SerialPort1.Write(dataOut, 0, 1)
-                TXDataListBox.Items.Add(dataOut)
-                TXLabel.Text = dataOut
-            Else
-                MsgBox("Please configure and open serial port to procede")
-
-            End If
-        End If
-
-        Timer1.Enabled = True
-    End Sub
+    '    dataOut = "D"
 
 
-    'not control anything
-    Private Sub AnOut4Button_Click(sender As Object, e As EventArgs) Handles AnOut4Button.Click
-        Timer1.Enabled = False                                  'Stop Timer
+    '    If portState = True Then
+    '        If portState = True Then
+    '            SerialPort1.Write(dataOut, 0, 1)
+    '            TXDataListBox.Items.Add(dataOut)
+    '            TXLabel.Text = dataOut
+    '        Else
+    '            MsgBox("Please configure and open serial port to procede")
+
+    '        End If
+    '    End If
+
+    '    Timer1.Enabled = True
+    'End Sub
 
 
-        ' Dim dataOut1 As String
-        Dim dataOut As String
+    ''not control anything
+    'Private Sub AnOut4Button_Click(sender As Object, e As EventArgs)
+    '    Timer1.Enabled = False                                  'Stop Timer
 
-        dataOut = "H"
+
+    '    ' Dim dataOut1 As String
+    '    Dim dataOut As String
+
+    '    dataOut = "H"
 
 
-        If portState = True Then
-            If portState = True Then
-                SerialPort1.Write(dataOut, 0, 1)
-                TXDataListBox.Items.Add(dataOut)
-                TXLabel.Text = dataOut
-            Else
-                MsgBox("Please configure and open serial port to procede")
+    '    If portState = True Then
+    '        If portState = True Then
+    '            SerialPort1.Write(dataOut, 0, 1)
+    '            TXDataListBox.Items.Add(dataOut)
+    '            TXLabel.Text = dataOut
+    '        Else
+    '            MsgBox("Please configure and open serial port to procede")
 
-            End If
-        End If
+    '        End If
+    '    End If
 
-        Timer1.Enabled = True
-    End Sub
+    '    Timer1.Enabled = True
+    'End Sub
 
 
     'Works
@@ -633,37 +633,56 @@ Public Class Form1
 
     '?????? How send as byte????
     Private Sub DOut8Button_Click(sender As Object, e As EventArgs) Handles DOut8Button.Click
-        Timer1.Enabled = False                                  'Stop Timer
-        'Dim dataOut As Byte
+        ' Timer1.Enabled = False                                  'Stop Timer
 
-        'dataOut = (&H20 & &H10)
 
-        ' Dim dataOut As String
 
-        ' dataOut = Chr(32) & Chr(127)
-        'dataOut = 2 & 40     ' works lights up LED 7
-        ' Dim message() As Byte
         TXdata(0) = 32
         TXdata(1) = 128
         TXdata(2) = 0
-
+        SendData()
+        ''If portState = True Then
         'If portState = True Then
+        '    'message = Int(dataOut)
+        '    SerialPort1.Write(TXdata, 0, 3)
+        '    'SerialPort1.Write(message, 0, message.Length)
+        '    'TXDataListBox.Items.Add(message)
+        '    TXDataListBox.Items.Add(TXdata)
+        '    TXLabel.Text = TXdata(0) & TXdata(1) & TXdata(2)
+        'Else
+        '    MsgBox("Please configure and open serial port to procede")
+
+        '    End If
+        ''End If
+
+        'Timer1.Enabled = True
+    End Sub
+
+
+    Function SendData() As Byte
+        Timer1.Enabled = False
         If portState = True Then
-            'message = Int(dataOut)
             SerialPort1.Write(TXdata, 0, 3)
-            'SerialPort1.Write(message, 0, message.Length)
-            'TXDataListBox.Items.Add(message)
             TXDataListBox.Items.Add(TXdata)
             TXLabel.Text = TXdata(0) & TXdata(1) & TXdata(2)
         Else
             MsgBox("Please configure and open serial port to procede")
-
-            End If
-        'End If
-
+        End If
         Timer1.Enabled = True
-    End Sub
+        ' Return _Something?
+    End Function
 
+    Function AnVoltage() As Integer
+        Dim vPort As Integer
+        Dim n1 As Integer
+        Dim n2 As Integer
+
+        n1 = dataIn1 * 4
+        n2 = dataIn2 / 64
+
+
+
+    End Function
 
     Private Sub Clear1Button_Click(sender As Object, e As EventArgs) Handles Clear1Button.Click
         TXDataListBox.Items.Clear()

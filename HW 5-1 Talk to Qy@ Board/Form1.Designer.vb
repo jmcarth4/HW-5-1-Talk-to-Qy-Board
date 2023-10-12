@@ -53,8 +53,6 @@ Partial Class Form1
         Me.DOut1Button = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AnOut2Button = New System.Windows.Forms.Button()
-        Me.AnOut4Button = New System.Windows.Forms.Button()
-        Me.AnOut3Button = New System.Windows.Forms.Button()
         Me.DIn1Label = New System.Windows.Forms.Label()
         Me.DOut2Button = New System.Windows.Forms.Button()
         Me.DOut3Button = New System.Windows.Forms.Button()
@@ -63,7 +61,11 @@ Partial Class Form1
         Me.DOut7Button = New System.Windows.Forms.Button()
         Me.DOut6Button = New System.Windows.Forms.Button()
         Me.DOut5Button = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Clear3Button
@@ -326,24 +328,6 @@ Partial Class Form1
         Me.AnOut2Button.Text = "Analog Output 2"
         Me.AnOut2Button.UseVisualStyleBackColor = True
         '
-        'AnOut4Button
-        '
-        Me.AnOut4Button.Location = New System.Drawing.Point(171, 535)
-        Me.AnOut4Button.Name = "AnOut4Button"
-        Me.AnOut4Button.Size = New System.Drawing.Size(139, 49)
-        Me.AnOut4Button.TabIndex = 126
-        Me.AnOut4Button.Text = "Analog Output 4"
-        Me.AnOut4Button.UseVisualStyleBackColor = True
-        '
-        'AnOut3Button
-        '
-        Me.AnOut3Button.Location = New System.Drawing.Point(171, 472)
-        Me.AnOut3Button.Name = "AnOut3Button"
-        Me.AnOut3Button.Size = New System.Drawing.Size(139, 49)
-        Me.AnOut3Button.TabIndex = 125
-        Me.AnOut3Button.Text = "Analog Output 3"
-        Me.AnOut3Button.UseVisualStyleBackColor = True
-        '
         'DIn1Label
         '
         Me.DIn1Label.AutoSize = True
@@ -416,11 +400,42 @@ Partial Class Form1
         Me.DOut5Button.Text = "Digital Output 5"
         Me.DOut5Button.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(327, 603)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(430, 51)
+        Me.GroupBox1.TabIndex = 135
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(3, 22)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(116, 24)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(832, 592)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 20)
+        Me.Label1.TabIndex = 136
+        Me.Label1.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1243, 666)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DOut8Button)
         Me.Controls.Add(Me.DOut7Button)
         Me.Controls.Add(Me.DOut6Button)
@@ -429,8 +444,6 @@ Partial Class Form1
         Me.Controls.Add(Me.DOut3Button)
         Me.Controls.Add(Me.DOut2Button)
         Me.Controls.Add(Me.DIn1Label)
-        Me.Controls.Add(Me.AnOut4Button)
-        Me.Controls.Add(Me.AnOut3Button)
         Me.Controls.Add(Me.AnOut2Button)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DOut1Button)
@@ -462,6 +475,8 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -497,8 +512,6 @@ Partial Class Form1
     Friend WithEvents DOut1Button As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents AnOut2Button As Button
-    Friend WithEvents AnOut4Button As Button
-    Friend WithEvents AnOut3Button As Button
     Friend WithEvents DIn1Label As Label
     Friend WithEvents DOut2Button As Button
     Friend WithEvents DOut3Button As Button
@@ -507,4 +520,7 @@ Partial Class Form1
     Friend WithEvents DOut7Button As Button
     Friend WithEvents DOut6Button As Button
     Friend WithEvents DOut5Button As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Label1 As Label
 End Class
